@@ -1,8 +1,7 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :user_login_check, only: [new]
 
-  # GET /pictures
-  # GET /pictures.json
   def index
     @pictures = Picture.all
   end
@@ -71,4 +70,10 @@ class PicturesController < ApplicationController
     def picture_params
       params.require(:picture).permit(:content, :image)
     end
+
+  def user_login_check
+    unless logged_in?
+      redirect_to root_path
+    end
+  end
 end
