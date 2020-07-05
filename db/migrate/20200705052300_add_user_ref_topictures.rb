@@ -1,4 +1,4 @@
-class AddUserPicture < ActiveRecord::Migration[5.2]
+class AddUserRefTopictures < ActiveRecord::Migration[5.2]
   def change
     add_reference :pictures, :user, foreign_key: true
   end
