@@ -9,6 +9,7 @@ class PicturesController < ApplicationController
   # GET /pictures/1
   # GET /pictures/1.json
   def show
+    @favorite = current_user.favorites.find_by(user_id: @picture.id)
   end
 
   def new
@@ -37,7 +38,7 @@ class PicturesController < ApplicationController
   end
 
   def create
-    @picture = current_user.pictures.build(picture_params)
+    @picture = current_user.pictures.build(picture_params)#現在ログインしているuserのidを、blogのuser_idカラムに挿入する
     if @picture.save
       redirect_to @picture, notice: '投稿できました'
     else
