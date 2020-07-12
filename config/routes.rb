@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contacts
   root to: "sessions#new"
   resources :sessions, only: [:new, :create, :destroy]
   resources :users

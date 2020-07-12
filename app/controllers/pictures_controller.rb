@@ -40,6 +40,7 @@ class PicturesController < ApplicationController
   def create
     @picture = current_user.pictures.build(picture_params)#現在ログインしているuserのidを、blogのuser_idカラムに挿入する
     if @picture.save
+      ContactsMailer.contact_mail(@contact).deliver
       redirect_to @picture, notice: '投稿できました'
     else
       render :new
