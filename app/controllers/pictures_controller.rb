@@ -9,7 +9,7 @@ class PicturesController < ApplicationController
   # GET /pictures/1
   # GET /pictures/1.json
   def show
-    @favorite = current_user.favorites.find_by(user_id: @picture.id)
+
   end
 
   def new
@@ -26,10 +26,7 @@ class PicturesController < ApplicationController
 
   def destroy
     @picture.destroy
-    respond_to do |format|
-      format.html { redirect_to pictures_url, notice: 'Picture was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+      redirect_to pictures_url, notice: 'Picture was successfully destroyed.'
   end
 
   def confirm
@@ -40,7 +37,7 @@ class PicturesController < ApplicationController
   def create
     @picture = current_user.pictures.build(picture_params)#現在ログインしているuserのidを、blogのuser_idカラムに挿入する
     if @picture.save
-      ContactsMailer.contact_mail(@contact).deliver
+      ContactsMailer.contact_mail(@picture).deliver
       redirect_to @picture, notice: '投稿できました'
     else
       render :new

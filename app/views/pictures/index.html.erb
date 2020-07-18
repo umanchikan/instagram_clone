@@ -3,9 +3,12 @@
   <p>投稿者 <%= picture.user.name %></p>
   <p>コメント <%= picture.content %></p>
   <p><%= image_tag(picture.image.url) %></p>
-  <tr>
-    <th><%= link_to 'Show', picture %></th>
-    <th><%= link_to 'Edit', edit_picture_path(picture) %></th>
-    <th><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></th>
-  </tr>
+
+    <p><%= picture.user.name %> </p>
+      <p><%= link_to 'Edit', edit_picture_path(picture) %></p>
+      <p><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+
+    <p><%= link_to 'Show', picture_path(picture) %></p>
+
 <% end %>
+
