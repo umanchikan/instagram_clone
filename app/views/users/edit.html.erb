@@ -22,9 +22,9 @@
   </div>
 
   <div class="field">
-    <%= image_tag(@user.user_image.url) if @user.user_image && @user.user_image.url %>
-    <%= form.file_field :user_image %>
-    <%= form.hidden_field :user_image_cache %>
+    <%= image_tag(@user.user_picture.url) if @user.user_picture && @user.user_picture.url %>
+    <%= form.file_field :user_picture %>
+    <%= form.hidden_field :user_picture_cache %>
   </div>
 
   <div class="actions">

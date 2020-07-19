@@ -37,7 +37,6 @@ class PicturesController < ApplicationController
   def create
     @picture = current_user.pictures.build(picture_params)#現在ログインしているuserのidを、blogのuser_idカラムに挿入する
     if @picture.save
-      ContactsMailer.contact_mail(@picture).deliver
       redirect_to @picture, notice: '投稿できました'
     else
       render :new
@@ -62,7 +61,7 @@ class PicturesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def picture_params
-      params.require(:picture).permit(:content, :image, :image_cache)
+      params.require(:picture).permit(:content, :blog_picture, :blog_picture_cache)
     end
 
   def user_login_check

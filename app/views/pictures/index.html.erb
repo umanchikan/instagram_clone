@@ -2,7 +2,7 @@
 <% @pictures.each do |picture| %>
   <p>投稿者 <%= picture.user.name %></p>
   <p>コメント <%= picture.content %></p>
-  <p><%= image_tag(picture.image.url) %></p>
+  <p><%= image_tag(picture.blog_picture.url) %></p>
 
       <% if picture.user.name == current_user.name %>
       <p><%= link_to 'Edit', edit_picture_path(picture) %></p>

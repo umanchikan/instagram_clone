@@ -2,8 +2,8 @@
 <p>メールアドレス: <%= @user.email %></p>
 
 
-  <% if @user.user_image.url %>
-    <%= image_tag @user.user_image.url %>
+  <% if @user.user_picture.url %>
+    <%= image_tag @user.user_picture.url %>
   <% else %>
   <p>登録写真なし</p>
     <% end %>
