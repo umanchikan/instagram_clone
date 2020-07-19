@@ -7,7 +7,7 @@
       <% if picture.user.name == current_user.name %>
       <p><%= link_to 'Edit', edit_picture_path(picture) %></p>
       <p><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-      <p><%= link_to 'Show', picture_path(picture) %></p>
     <% end %>
+  <p><%= link_to 'Show', picture_path(picture) %></p>
 <% end %>
 
