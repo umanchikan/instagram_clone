@@ -54,15 +54,13 @@ class PicturesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_picture
-      @picture = Picture.find(params[:id])
-    end
+  def set_picture
+    @picture = Picture.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def picture_params
-      params.require(:picture).permit(:content, :blog_picture, :blog_picture_cache)
-    end
+  def picture_params
+    params.require(:picture).permit(:content, :blog_picture, :blog_picture_cache)
+  end
 
   def user_login_check
     unless logged_in?
