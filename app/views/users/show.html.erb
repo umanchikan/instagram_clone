@@ -8,7 +8,8 @@
   <p>登録写真なし</p>
     <% end %>
 
-<%= link_to "新規投稿", new_picture_path %>
-
+<% if @user.name == current_user.name %>
 <%= link_to "編集",  edit_user_path %>
+<% end %>
+<%= link_to "新規投稿", new_picture_path %>
 <%= link_to "一覧",  pictures_path %>
